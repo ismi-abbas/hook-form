@@ -35,11 +35,11 @@ export default function Home() {
 
   return (
     <main className="container max-w-md mx-auto mt-20">
-      <div>
-        <h1 className="text-lg font-bold">React Hook Form Test</h1>
+      <div className="p-2 my-2">
+        <h1 className="text-3xl font-bold text-center">React Hook Form</h1>
       </div>
 
-      <div>
+      <div className="border border-dashed border-slate-400 rounded-lg p-4 my-4">
         <form
           className="flex flex-col space-y-2"
           onSubmit={handleSubmit(onSubmit)}
@@ -89,13 +89,21 @@ export default function Home() {
         </form>
       </div>
 
-      <div className="flex flex-col mt-4">
+      <div className="flex flex-col mt-4 ">
         <h1 className="text-center font-bold text-lg">Form Output</h1>
 
-        <div>{data.firstName && <p>First Name: {data.firstName}</p>}</div>
-        <div>{data.lastName && <p>Last Name: {data.lastName}</p>}</div>
-        <div>{data.email && <p>Email: {data.email}</p>}</div>
-        <div>{data.password && <p>Password: {data.password}</p>}</div>
+        <div
+          className={`border border-dashed border-slate-400 rounded-lg ${
+            data.firstName && data.lastName && data.email && data.password
+              ? "p-4"
+              : "border-nonea"
+          }`}
+        >
+          <div>{data.firstName && <p>First Name: {data.firstName}</p>}</div>
+          <div>{data.lastName && <p>Last Name: {data.lastName}</p>}</div>
+          <div>{data.email && <p>Email: {data.email}</p>}</div>
+          <div>{data.password && <p>Password: {data.password}</p>}</div>
+        </div>
       </div>
     </main>
   );
